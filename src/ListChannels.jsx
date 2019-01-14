@@ -1,10 +1,9 @@
 import React from 'react';
 
-export default (channels) => {
-    console.log('inside-->', channels)
-    return (
-        <ul>
-            {channels.map(el => <li>{el.name}</li>)}
-        </ul>
-    );
-};
+const listChannels = channels => (
+  <ul>
+    {channels.map(el => <li key={el.id}>{el.name}</li>)}
+  </ul>
+);
+
+export default listChannels;

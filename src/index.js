@@ -12,8 +12,7 @@ if (process.env.NODE_ENV !== 'production') {
   localStorage.debug = 'chat:*';
 }
 
-const {channels} = window.gon;
-console.log('catch gon ----->', channels);
+const { channels } = window.gon;
 
 ReactDOM.render(
   listChannels(channels),
