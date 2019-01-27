@@ -1,4 +1,5 @@
 import ListChannels from './ListChannels';
+import MessageBox from './MessageBox';
 import App from './App';
 
-export { ListChannels, App };
+export { ListChannels, MessageBox, App };

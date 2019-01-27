@@ -4,19 +4,12 @@ import Listchannels from './ListChannels';
 // import Tabexp from './Tabexp';
 
 const App = channels => (
-  <div className="container-fluid h-100">
-    <div className="row h-100">
-      <div className="channel-list">
-        <Listchannels channels={channels} />
-      </div>
-      <div className="col pr-0 d-flex flex-column my-3">
-        <div className="bg-white messages-window flex-grow-1 mx-100">
-          ffff
-        </div>
-        <div className="row input mw-100">
-          khjhgj
-        </div>
-      </div>
+  <div style={{ height: "100%", margin: "5px" }}>
+    <div style={{ float: "left", height: "100vh", width: "25%", border: "1px solid gray", borderRadius: "5px", marginLeft: "-1px" }}>
+      <Listchannels channels={channels} />
+    </div>
+    <div style={{ float: "right", height: "100vh", width: "75%", border: "1px solid gray", borderRadius: "5px", marginRight: "-1px" }}>
+      fghh
     </div>
   </div>
 );
