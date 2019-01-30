@@ -24,7 +24,6 @@ export default (router, io) => {
       ctx.status = 301;
     })
     .post('/channels', (ctx) => {
-      console.log(ctx.request.body);
       const { data: { attributes: { name } } } = ctx.request.body;
       const channel = {
         name,

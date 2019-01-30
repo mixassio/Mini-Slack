@@ -18,7 +18,13 @@ class ListChannels extends React.Component {
     const { messages } = this.props;
     return (
       <ListGroup>
-        {messages.map(el => <ListGroupItem key={el.id}>{el.name}</ListGroupItem>)}
+        {messages.map(el => (
+          <ListGroupItem key={el.id}>
+            <i>{el.user}</i>
+            {':  '}
+            <b>{el.text}</b>
+          </ListGroupItem>
+        ))}
       </ListGroup>
     );
   }

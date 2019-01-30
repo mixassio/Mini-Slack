@@ -12,15 +12,14 @@ export const addMessageRequest = createAction('MESSAGE_ADD_REQUEST');
 export const addMessageSuccess = createAction('MESSAGE_ADD_SUCCESS');
 export const addMessageFailure = createAction('MESSAGE_ADD_FAILURE');
 
-export const addMessage = message => async (dispatch) => {
+export const addMessage = ({ message, channelId, user }) => async (dispatch) => {
   dispatch(addMessageRequest());
   try {
-    const url = routes.messages(message.channelId);
+    const url = routes.messages(channelId);
     const data = {
-      attributes: message,
+      attributes: { text: message, user },
     };
     await axios.post(url, { data });
-    // dispatch(addMessageSuccess({ message: response.data }));
   } catch (e) {
     dispatch(addMessageFailure());
     throw e;

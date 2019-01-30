@@ -14,23 +14,10 @@ const messages = handleActions({
   },
 }, {});
 
-const addMessageToState = handleActions({
-  [actions.addMessageSuccess]() {
-    return 'successed';
-  },
-  [actions.addMessageFailure]() {
-    return 'failed';
-  },
-  [actions.addMessageRequest]() {
-    return 'requested';
-  },
-}, 'none');
-
 export default combineReducers({
   user,
   currentChannelId,
   messages,
   channels,
-  addMessageToState,
   form: formReducer,
 });
