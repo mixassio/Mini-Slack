@@ -1,6 +1,7 @@
 import React from 'react';
 import Listchannels from './ListChannels';
-import MessageBox from './MessageBox';
+import ListMessages from './ListMessages';
+import FormMessage from './FormMessage';
 
 
 const App = () => (
@@ -22,14 +23,28 @@ const App = () => (
       width: '75%',
     }}
     >
-      <MessageBox />
+      <div
+        style={{
+          overflow: 'auto',
+          height: '80vh',
+          border: '1px solid gray',
+          borderRadius: '5px',
+          marginBottom: '5px',
+        }}
+      >
+        <ListMessages />
+      </div>
+      <div style={{
+        height: '19vh',
+        border: '1px solid gray',
+        borderRadius: '5px',
+        marginTop: '5px',
+      }}
+      >
+        <FormMessage />
+      </div>
     </div>
   </div>
 );
 
 export default App;
-/**
-border: '1px solid gray',
-borderRadius: '5px',
-marginRight: '-1px',
- */

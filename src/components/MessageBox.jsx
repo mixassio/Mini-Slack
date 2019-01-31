@@ -4,13 +4,15 @@ import FormMessage from './FormMessage';
 
 
 const MessageBox = () => (
-  <div style={{ height: '100%' }}>
-    <div style={{
-      height: '80vh',
-      border: '1px solid gray',
-      borderRadius: '5px',
-      marginBottom: '5px',
-    }}
+  <div>
+    <div
+      className="pre-scrollable"
+      style={{
+        height: '80vh',
+        border: '1px solid gray',
+        borderRadius: '5px',
+        marginBottom: '5px',
+      }}
     >
       <ListMessages />
     </div>
