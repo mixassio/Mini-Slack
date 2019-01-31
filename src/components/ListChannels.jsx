@@ -17,7 +17,7 @@ class ListChannels extends React.Component {
   render() {
     const { channels } = this.props;
     return (
-      <ListGroup>
+      <ListGroup className="w-100">
         {channels.map(el => <ListGroupItem key={el.id}>{el.name}</ListGroupItem>)}
       </ListGroup>
     );

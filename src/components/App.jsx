@@ -26,7 +26,7 @@ const App = () => (
       <div
         style={{
           overflow: 'auto',
-          height: '80vh',
+          height: '90vh',
           border: '1px solid gray',
           borderRadius: '5px',
           marginBottom: '5px',
@@ -35,7 +35,7 @@ const App = () => (
         <ListMessages />
       </div>
       <div style={{
-        height: '19vh',
+        height: '9vh',
         border: '1px solid gray',
         borderRadius: '5px',
         marginTop: '5px',
