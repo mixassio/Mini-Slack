@@ -5,43 +5,18 @@ import FormMessage from './FormMessage';
 
 
 const App = () => (
-  <div style={{ height: '100%', margin: '5px' }}>
-    <div style={{
-      float: 'left',
-      height: '100vh',
-      width: '25%',
-      border: '1px solid gray',
-      borderRadius: '5px',
-      marginLeft: '-1px',
-    }}
-    >
-      <Listchannels />
-    </div>
-    <div style={{
-      float: 'right',
-      height: '100vh',
-      width: '75%',
-    }}
-    >
-      <div
-        style={{
-          overflow: 'auto',
-          height: '90vh',
-          border: '1px solid gray',
-          borderRadius: '5px',
-          marginBottom: '5px',
-        }}
-      >
-        <ListMessages />
+  <div className="container-fluid">
+    <div className="row vh-100">
+      <div className="col-sm-3" style={{ borderRight: '1px solid orange' }}>
+        <Listchannels />
       </div>
-      <div style={{
-        height: '9vh',
-        border: '1px solid gray',
-        borderRadius: '5px',
-        marginTop: '5px',
-      }}
-      >
-        <FormMessage />
+      <div className="col-sm-9">
+        <div style={{ overflow: 'auto', height: '90vh' }}>
+          <ListMessages />
+        </div>
+        <div style={{ height: '10vh', borderTop: '1px solid orange' }}>
+          <FormMessage />
+        </div>
       </div>
     </div>
   </div>

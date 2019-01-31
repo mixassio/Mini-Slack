@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import '../assets/application.css';
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -10,7 +11,7 @@ import cookies from 'js-cookie';
 import io from 'socket.io-client';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
-import { App } from './components';
+import { App, Example } from './components';
 import * as actions from './actions';
 import reducers from './reducers';
 
