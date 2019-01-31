@@ -11,7 +11,7 @@ import cookies from 'js-cookie';
 import io from 'socket.io-client';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
-import { App, Example } from './components';
+import { App } from './components';
 import * as actions from './actions';
 import reducers from './reducers';
 
