@@ -1,4 +1,4 @@
-import ListChannels from './ListChannels';
+import Channels from './Channels';
 import App from './App';
 
-export { ListChannels, App };
+export { Channels, App };

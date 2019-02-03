@@ -14,6 +14,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { App } from './components';
 import * as actions from './actions';
 import reducers from './reducers';
+import { UserProvider } from './context/UserContext';
 
 
 /* eslint-disable no-underscore-dangle */
@@ -27,7 +28,6 @@ cookies.set('name', user);
 const initState = {
   channels: _.keyBy(gon.channels, 'id'),
   messages: _.keyBy(gon.messages, 'id'),
-  user,
   currentChannelId: gon.currentChannelId,
 };
 const store = createStore(
@@ -52,6 +52,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 ReactDOM.render((
   <Provider store={store}>
-    <App />
+    <UserProvider value={user}>
+      <App />
+    </UserProvider>
   </Provider>
 ), document.getElementById('chat'));

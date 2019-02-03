@@ -5,7 +5,6 @@ import { reducer as formReducer } from 'redux-form';
 import * as actions from '../actions';
 
 
-const user = (state = {}) => state;
 const currentChannelId = (state = {}) => state;
 const channels = (state = {}) => state;
 const messages = handleActions({
@@ -15,7 +14,6 @@ const messages = handleActions({
 }, {});
 
 export default combineReducers({
-  user,
   currentChannelId,
   messages,
   channels,
