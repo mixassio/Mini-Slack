@@ -5,18 +5,16 @@ import FormMessage from './FormMessage';
 
 
 const App = () => (
-  <div className="container-fluid">
-    <div className="row vh-100">
-      <div className="col-sm-3 border-right border-warning">
-        <Channels />
+  <div className="d-flex justify-content-center m-2 flex-row">
+    <div className="flex-column ml-5 pr-2 channels border-right border-warning">
+      <Channels />
+    </div>
+    <div className="flex-column mr-5 pl-2 w-50">
+      <div className="messages pb-1">
+        <Messages />
       </div>
-      <div className="col-sm-9">
-        <div style={{ overflow: 'auto', height: '90vh' }}>
-          <Messages />
-        </div>
-        <div style={{ height: '10vh', borderTop: '1px solid orange' }}>
-          <FormMessage />
-        </div>
+      <div className="mt-2 border-top border-warning formMessage">
+        <FormMessage />
       </div>
     </div>
   </div>

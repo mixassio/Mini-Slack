@@ -36,11 +36,9 @@ class FormMessage extends React.Component {
     return (
       <UserConsumer>
         {user => (
-          <form className="form-inline" onSubmit={handleSubmit(this.submitMessage(user))}>
-            <div className="form-group mx-3">
-              <Field name="text" required component="input" type="text" disabled={submitting} />
-            </div>
-            <button type="submit" className="btn btn-primary btn-sm" disabled={submitting}>Send</button>
+          <form className="form-inline mt-3" onSubmit={handleSubmit(this.submitMessage(user))}>
+            <Field name="text" required component="input" type="text" disabled={submitting} className="w-75 border border-info" />
+            <button type="submit" className="ml-1 btn btn-primary btn-sm" disabled={submitting}>Send</button>
           </form>
         )}
       </UserConsumer>

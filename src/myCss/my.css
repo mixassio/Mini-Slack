@@ -1,0 +1,11 @@
+.messages {
+  overflow: auto;
+  height: 85vh;
+}
+
+.formMessage {
+  height: 10vh;
+}
+.channels {
+  width: 15%;
+}
