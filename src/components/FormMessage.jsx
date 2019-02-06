@@ -4,10 +4,9 @@ import connect from '../connect';
 import { UserConsumer } from '../context/UserContext';
 
 
-const mapStateToProps = ({ currentChannelId, user, addMessageToState }) => ({
-  addMessageToState,
+const mapStateToProps = ({ currentChannelId, addMessage }) => ({
+  addMessage,
   currentChannelId,
-  user,
 });
 
 @connect(mapStateToProps)
