@@ -25,3 +25,4 @@ export const addMessage = ({ message, channelId, user }) => async (dispatch) => 
     throw e;
   }
 };
+export const setCurrentChannnelId = createAction('SET_CHANNEL_ID');

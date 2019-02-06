@@ -5,7 +5,12 @@ import { reducer as formReducer } from 'redux-form';
 import * as actions from '../actions';
 
 
-const currentChannelId = (state = {}) => state;
+const currentChannelId = handleActions({
+  [actions.setCurrentChannnelId](state, { payload: channelId }) {
+    return channelId;
+  },
+}, '');
+
 const channels = (state = {}) => state;
 const messages = handleActions({
   [actions.addMessageSuccess](state, { payload }) {
