@@ -10,7 +10,7 @@ const mapStateToProps = ({ currentChannelId, addMessage }) => ({
 });
 
 @connect(mapStateToProps)
-@reduxForm({ form: 'inputForm' })
+@reduxForm({ form: 'newMessage' })
 class FormMessage extends React.Component {
   submitMessage = user => async (value) => {
     const {

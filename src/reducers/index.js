@@ -11,7 +11,12 @@ const currentChannelId = handleActions({
   },
 }, '');
 
-const channels = (state = {}) => state;
+const channels = handleActions({
+  [actions.addChannelSuccess](state, { payload }) {
+    return { ...state, [payload.id]: payload };
+  },
+}, {});
+
 const messages = handleActions({
   [actions.addMessageSuccess](state, { payload }) {
     return { ...state, [payload.id]: payload };

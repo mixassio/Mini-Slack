@@ -44,6 +44,9 @@ const socket = io();
 socket.on('newMessage', ({ data: { attributes } }) => {
   store.dispatch(actions.addMessageSuccess(attributes));
 });
+socket.on('newChannel', ({ data: { attributes } }) => {
+  store.dispatch(actions.addChannelSuccess(attributes));
+});
 
 if (process.env.NODE_ENV !== 'production') {
   localStorage.debug = 'chat:*';

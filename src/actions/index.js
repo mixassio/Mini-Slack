@@ -3,7 +3,7 @@ import { createAction } from 'redux-actions';
 
 
 const routes = {
-  channels: id => `/api/v1/channels/${id}`,
+  channels: (id = '') => `/api/v1/channels/${id}`,
   messages: id => `/api/v1/channels/${id}/messages`,
 };
 
@@ -26,3 +26,21 @@ export const addMessage = ({ message, channelId, user }) => async (dispatch) => 
   }
 };
 export const setCurrentChannnelId = createAction('SET_CHANNEL_ID');
+
+export const addChannelRequest = createAction('CHANNEL_ADD_REQUEST');
+export const addChannelSuccess = createAction('CHANNEL_ADD_SUCCESS');
+export const addChannelFailure = createAction('CHANNEL_ADD_FAILURE');
+
+export const addChannel = name => async (dispatch) => {
+  dispatch(addChannelRequest());
+  try {
+    const url = routes.channels();
+    const data = {
+      attributes: { name },
+    };
+    await axios.post(url, { data });
+  } catch (e) {
+    dispatch(addChannelFailure());
+    throw e;
+  }
+};
