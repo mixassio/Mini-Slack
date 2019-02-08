@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import { createSelector } from 'reselect';
 import { Field, reduxForm } from 'redux-form';
-import { ListGroup, Button } from 'react-bootstrap';
+import { ListGroup, Button, ButtonGroup } from 'react-bootstrap';
 import connect from '../connect';
 
 const getChannels = state => state.channels;
@@ -35,13 +35,20 @@ class Channels extends React.Component {
     }
   };
 
+  renderButtons = () => (
+    <ButtonGroup size="sm">
+      <Button size="sm" variant="outline-warning"><span className="oi oi-pencil" /></Button>
+      <Button size="sm" variant="outline-danger"><span className="oi oi-x" /></Button>
+    </ButtonGroup>
+  );
+
   render() {
     const { channels, currentChannelId, handleSubmit } = this.props;
     return (
       <ListGroup>
         <form className="form-inline m-1" onSubmit={handleSubmit(this.submitChannel)}>
-          <Field name="text" required component="input" type="text" className="w-75 border border-success" />
-          <button type="submit" className="ml-1 btn btn-success btn-sm">NEW</button>
+          <Field name="text" required component="input" type="text" className="w-75 border border-info" />
+          <button type="submit" className="ml-1 btn btn-info btn-sm">NEW</button>
         </form>
         {channels.map((el) => {
           const btnClass = cn({
@@ -49,7 +56,10 @@ class Channels extends React.Component {
             active: el.id === currentChannelId,
           });
           return (
-            <Button onClick={this.setChannel(el.id)} className={btnClass} key={el.id} variant="outline-success">{el.name}</Button>
+            <div key={el.id}>
+              <Button size="sm" onClick={this.setChannel(el.id)} className={btnClass} variant="outline-success">{el.name}</Button>
+              {el.removable && this.renderButtons()}
+            </div>
           );
         })}
       </ListGroup>

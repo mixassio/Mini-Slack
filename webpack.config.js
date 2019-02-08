@@ -1,7 +1,6 @@
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
   entry: [
-    '@babel/polyfill',
     `${__dirname}/src/index.jsx`,
   ],
   externals: {
@@ -24,6 +23,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(eot|otf|svg|ttf|woff|woff2)$/,
+        use: 'file-loader',
       },
     ],
   },
