@@ -49,6 +49,9 @@ socket.on('newMessage', ({ data: { attributes } }) => {
 socket.on('newChannel', ({ data: { attributes } }) => {
   store.dispatch(actions.addChannelSuccess(attributes));
 });
+socket.on('removeChannel', ({ data }) => {
+  store.dispatch(actions.deleteChannelSuccess(data));
+});
 
 if (process.env.NODE_ENV !== 'production') {
   localStorage.debug = 'chat:*';

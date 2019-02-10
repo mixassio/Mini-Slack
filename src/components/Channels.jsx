@@ -58,7 +58,7 @@ class Channels extends React.Component {
               && (
                 <ButtonGroup className="m-1">
                   {<RenameChannel />}
-                  {<DeleteChannel />}
+                  {<DeleteChannel channelId={el.id} />}
                 </ButtonGroup>
               )
               }

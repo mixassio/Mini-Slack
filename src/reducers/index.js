@@ -1,4 +1,4 @@
-// import _ from 'lodash';
+import _ from 'lodash';
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 import { reducer as formReducer } from 'redux-form';
@@ -14,6 +14,9 @@ const currentChannelId = handleActions({
 const channels = handleActions({
   [actions.addChannelSuccess](state, { payload }) {
     return { ...state, [payload.id]: payload };
+  },
+  [actions.deleteChannelSuccess](state, { payload: channelId }) {
+    return _.omit(state, channelId);
   },
 }, {});
 

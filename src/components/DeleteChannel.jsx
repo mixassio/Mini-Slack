@@ -1,7 +1,12 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import connect from '../connect';
 
+const mapStateToProps = ({ deleteChannel }) => ({
+  deleteChannel,
+});
 
+@connect(mapStateToProps)
 class DeleteChannel extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -11,6 +16,15 @@ class DeleteChannel extends React.Component {
       show: false,
     };
   }
+
+  delete = idChannel => async () => {
+    const { deleteChannel } = this.props;
+    try {
+      await deleteChannel(idChannel);
+    } catch (e) {
+      throw e;
+    }
+  };
 
   handleClose() {
     this.setState({ show: false });
@@ -22,6 +36,7 @@ class DeleteChannel extends React.Component {
 
   render() {
     const { show } = this.state;
+    const { channelId } = this.props;
     return (
       <>
         <Button size="sm" variant="outline-danger" onClick={this.handleShow}><span className="oi oi-x" /></Button>
@@ -35,7 +50,7 @@ class DeleteChannel extends React.Component {
             <Button variant="secondary" onClick={this.handleClose}>
               Close
             </Button>
-            <Button variant="danger" onClick={this.handleClose}>
+            <Button variant="danger" onClick={this.delete(channelId)}>
               DELETE
             </Button>
           </Modal.Footer>

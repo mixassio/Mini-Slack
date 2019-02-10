@@ -44,3 +44,23 @@ export const addChannel = name => async (dispatch) => {
     throw e;
   }
 };
+
+export const deleteChannelRequest = createAction('CHANNEL_DELETE_REQUEST');
+export const deleteChannelSuccess = createAction('CHANNEL_DELETE_SUCCESS');
+export const deleteChannelFailure = createAction('CHANNEL_DELETE_FAILURE');
+
+export const deleteChannel = id => async (dispatch) => {
+  dispatch(deleteChannelRequest());
+  try {
+    const url = routes.channels(id);
+    const data = {
+      attributes: {
+        id,
+      },
+    };
+    await axios.delete(url, { data });
+  } catch (e) {
+    dispatch(deleteChannelFailure());
+    throw e;
+  }
+};
