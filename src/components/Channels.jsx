@@ -4,6 +4,8 @@ import { createSelector } from 'reselect';
 import { Field, reduxForm } from 'redux-form';
 import { ListGroup, Button, ButtonGroup } from 'react-bootstrap';
 import connect from '../connect';
+import DeleteChannel from './DeleteChannel';
+import RenameChannel from './RenameChannel';
 
 const getChannels = state => state.channels;
 const channelsSelector = createSelector(
@@ -55,8 +57,8 @@ class Channels extends React.Component {
               {el.removable
               && (
                 <ButtonGroup className="m-1">
-                  <Button size="sm" variant="outline-warning"><span className="oi oi-pencil" /></Button>
-                  <Button size="sm" variant="outline-danger"><span className="oi oi-x" /></Button>
+                  {<RenameChannel />}
+                  {<DeleteChannel />}
                 </ButtonGroup>
               )
               }
