@@ -35,13 +35,6 @@ class Channels extends React.Component {
     }
   };
 
-  renderButtons = () => (
-    <ButtonGroup size="sm">
-      <Button size="sm" variant="outline-warning"><span className="oi oi-pencil" /></Button>
-      <Button size="sm" variant="outline-danger"><span className="oi oi-x" /></Button>
-    </ButtonGroup>
-  );
-
   render() {
     const { channels, currentChannelId, handleSubmit } = this.props;
     return (
@@ -52,14 +45,22 @@ class Channels extends React.Component {
         </form>
         {channels.map((el) => {
           const btnClass = cn({
+            'w-100': true,
             'm-1': true,
             active: el.id === currentChannelId,
           });
           return (
-            <div key={el.id}>
+            <ButtonGroup size="sm" key={el.id}>
               <Button size="sm" onClick={this.setChannel(el.id)} className={btnClass} variant="outline-success">{el.name}</Button>
-              {el.removable && this.renderButtons()}
-            </div>
+              {el.removable
+              && (
+                <ButtonGroup className="m-1">
+                  <Button size="sm" variant="outline-warning"><span className="oi oi-pencil" /></Button>
+                  <Button size="sm" variant="outline-danger"><span className="oi oi-x" /></Button>
+                </ButtonGroup>
+              )
+              }
+            </ButtonGroup>
           );
         })}
       </ListGroup>
