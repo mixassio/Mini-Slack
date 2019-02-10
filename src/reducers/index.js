@@ -15,8 +15,8 @@ const channels = handleActions({
   [actions.addChannelSuccess](state, { payload }) {
     return { ...state, [payload.id]: payload };
   },
-  [actions.deleteChannelSuccess](state, { payload: channelId }) {
-    return _.omit(state, channelId);
+  [actions.deleteChannelSuccess](state, { payload }) {
+    return _.omit(state, payload.id);
   },
 }, {});
 
