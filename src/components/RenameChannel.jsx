@@ -22,11 +22,12 @@ class RenameChannel extends React.Component {
   }
 
   render() {
+    const { show } = this.state;
     return (
       <>
         <Button size="sm" variant="outline-warning" onClick={this.handleShow}><span className="oi oi-pencil" /></Button>
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal show={show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Rename channel</Modal.Title>
           </Modal.Header>

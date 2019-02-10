@@ -21,11 +21,12 @@ class DeleteChannel extends React.Component {
   }
 
   render() {
+    const { show } = this.state;
     return (
       <>
         <Button size="sm" variant="outline-danger" onClick={this.handleShow}><span className="oi oi-x" /></Button>
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal show={show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Delete Channell</Modal.Title>
           </Modal.Header>
