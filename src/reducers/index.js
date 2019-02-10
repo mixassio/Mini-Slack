@@ -9,6 +9,9 @@ const currentChannelId = handleActions({
   [actions.setCurrentChannnelId](state, { payload: channelId }) {
     return channelId;
   },
+  [actions.deleteChannelSuccess]() {
+    return 1;
+  },
 }, '');
 
 const channels = handleActions({
@@ -23,6 +26,10 @@ const channels = handleActions({
 const messages = handleActions({
   [actions.addMessageSuccess](state, { payload }) {
     return { ...state, [payload.id]: payload };
+  },
+  [actions.deleteChannelSuccess](state, { payload }) {
+    const { id } = payload;
+    return _.omitBy(state, { channelId: id });
   },
 }, {});
 
