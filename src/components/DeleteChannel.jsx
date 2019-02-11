@@ -45,12 +45,8 @@ class DeleteChannel extends React.Component {
           </Modal.Header>
           <Modal.Body>This channel will be deleted with all messages</Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
-              Close
-            </Button>
-            <Button variant="danger" onClick={this.delete(channelId)}>
-              DELETE
-            </Button>
+            <Button variant="secondary" onClick={this.handleClose}>Close</Button>
+            <Button variant="danger" onClick={this.delete(channelId)}>DELETE</Button>
           </Modal.Footer>
         </Modal>
       </>

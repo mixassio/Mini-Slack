@@ -21,6 +21,9 @@ const channels = handleActions({
   [actions.deleteChannelSuccess](state, { payload }) {
     return _.omit(state, payload.id);
   },
+  [actions.renameChannelSuccess](state, { payload: { id, attributes } }) {
+    return { ...state, [id]: attributes };
+  },
 }, {});
 
 const messages = handleActions({

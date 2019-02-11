@@ -53,14 +53,28 @@ export const deleteChannel = id => async (dispatch) => {
   dispatch(deleteChannelRequest());
   try {
     const url = routes.channels(id);
-    const data = {
-      attributes: {
-        id,
-      },
-    };
-    await axios.delete(url, { data });
+    await axios.delete(url);
   } catch (e) {
     dispatch(deleteChannelFailure());
     throw e;
+  }
+};
+
+export const renameChannelRequest = createAction('CHANNEL_RENAME_REQUEST');
+export const renameChannelSuccess = createAction('CHANNEL_RENAME_SUCCESS');
+export const renameChannelFailure = createAction('CHANNEL_RENAME_FAILURE');
+
+export const renameChannel = ({ channelId, name }) => async (dispatch) => {
+  dispatch(renameChannelRequest());
+  try {
+    const url = routes.channels(channelId);
+    const data = {
+      attributes: {
+        name,
+      },
+    };
+    await axios.patch(url, { data });
+  } catch (e) {
+    dispatch(renameChannelFailure());
   }
 };

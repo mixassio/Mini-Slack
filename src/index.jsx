@@ -41,6 +41,7 @@ const store = createStore(
   ),
 );
 
+// -------------
 const socket = io();
 
 socket.on('newMessage', ({ data: { attributes } }) => {
@@ -52,11 +53,14 @@ socket.on('newChannel', ({ data: { attributes } }) => {
 socket.on('removeChannel', ({ data }) => {
   store.dispatch(actions.deleteChannelSuccess(data));
 });
+socket.on('renameChannel', ({ data }) => {
+  store.dispatch(actions.renameChannelSuccess(data));
+});
+// -------------
 
 if (process.env.NODE_ENV !== 'production') {
   localStorage.debug = 'chat:*';
 }
-
 
 ReactDOM.render((
   <Provider store={store}>
