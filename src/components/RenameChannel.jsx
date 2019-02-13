@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { Button, Modal } from 'react-bootstrap';
 import connect from '../connect';
 
@@ -29,7 +29,7 @@ class RenameChannel extends React.Component {
         channelId,
       });
     } catch (e) {
-      throw e;
+      throw new SubmissionError({ error: 'Somthing errors' });
     }
     reset();
     this.handleClose();

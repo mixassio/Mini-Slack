@@ -1,17 +1,13 @@
 import React from 'react';
 import cn from 'classnames';
-import { createSelector } from 'reselect';
 import { Field, reduxForm } from 'redux-form';
 import { ListGroup, Button, ButtonGroup } from 'react-bootstrap';
 import connect from '../connect';
+import { channelsSelector } from '../selectors';
 import DeleteChannel from './DeleteChannel';
 import RenameChannel from './RenameChannel';
 
-const getChannels = state => state.channels;
-const channelsSelector = createSelector(
-  getChannels,
-  channels => Object.values(channels),
-);
+
 const mapStateToProps = state => ({
   channels: channelsSelector(state),
   setCurrentChannnelId: state.setCurrentChannnelId,

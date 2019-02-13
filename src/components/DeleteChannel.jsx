@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import { SubmissionError } from 'redux-form';
 import connect from '../connect';
 
 const mapStateToProps = ({ deleteChannel }) => ({
@@ -20,7 +21,7 @@ class DeleteChannel extends React.Component {
     try {
       await deleteChannel(idChannel);
     } catch (e) {
-      throw e;
+      throw new SubmissionError({ error: 'Somthing errors' });
     }
   };
 

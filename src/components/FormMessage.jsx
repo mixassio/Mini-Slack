@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, SubmissionError } from 'redux-form';
 import connect from '../connect';
 import { UserConsumer } from '../context/UserContext';
 
@@ -26,7 +26,7 @@ class FormMessage extends React.Component {
       });
       reset();
     } catch (e) {
-      throw e;
+      throw new SubmissionError({ error: 'Somthing errors' });
     }
   };
 

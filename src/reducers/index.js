@@ -4,13 +4,14 @@ import { handleActions } from 'redux-actions';
 import { reducer as formReducer } from 'redux-form';
 import * as actions from '../actions';
 
+const defaultChannel = 1;
 
 const currentChannelId = handleActions({
   [actions.setCurrentChannnelId](state, { payload: channelId }) {
     return channelId;
   },
   [actions.deleteChannelSuccess]() {
-    return 1;
+    return defaultChannel;
   },
 }, '');
 

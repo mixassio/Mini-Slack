@@ -2,7 +2,6 @@ import '@babel/polyfill';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import 'open-iconic/font/css/open-iconic-bootstrap.css';
-import './myCss/my.css';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Provider } from 'react-redux';
