@@ -18,12 +18,11 @@ class FormMessage extends React.Component {
   }
 
   componentDidMount() {
-    console.log('didMount', this.inputMessage.current);
+    this.inputMessage.current.getRenderedComponent().focus();
   }
 
   componentDidUpdate() {
-    console.log('didUpdate', this.inputMessage.current);
-    this.inputMessage.getRenderedComponent().focus();
+    this.inputMessage.current.getRenderedComponent().focus();
   }
 
   submitMessage = user => async (value) => {
@@ -51,10 +50,8 @@ class FormMessage extends React.Component {
         {user => (
           <form className="form-inline mt-3" onSubmit={handleSubmit(this.submitMessage(user))}>
             <Field
-              autoComplete="off"
               ref={this.inputMessage}
-              withRef
-              autoFocus
+              forwardRef
               name="text"
               required
               component="input"
