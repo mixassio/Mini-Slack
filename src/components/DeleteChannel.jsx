@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { SubmissionError } from 'redux-form';
+import { reduxForm, SubmissionError } from 'redux-form';
 import connect from '../connect';
 
 const mapStateToProps = ({ deleteChannel }) => ({
@@ -8,6 +8,7 @@ const mapStateToProps = ({ deleteChannel }) => ({
 });
 
 @connect(mapStateToProps)
+@reduxForm({ form: 'deleteChannel' })
 class DeleteChannel extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -35,7 +36,7 @@ class DeleteChannel extends React.Component {
 
   render() {
     const { show } = this.state;
-    const { channelId, submitting } = this.props;
+    const { channelId, handleSubmit, submitting } = this.props;
     return (
       <>
         <Button size="sm" variant="outline-danger" onClick={this.handleShow}><span className="oi oi-x" /></Button>
@@ -47,7 +48,9 @@ class DeleteChannel extends React.Component {
           <Modal.Body>This channel will be deleted with all messages</Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-            <Button variant="danger" disabled={submitting} onClick={this.delete(channelId)}>DELETE</Button>
+            <form onSubmit={handleSubmit(this.delete(channelId))}>
+              <Button type="submit" variant="danger" disabled={submitting}>DELETE</Button>
+            </form>
           </Modal.Footer>
         </Modal>
       </>
