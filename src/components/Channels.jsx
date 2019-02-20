@@ -34,12 +34,14 @@ class Channels extends React.Component {
   };
 
   render() {
-    const { channels, currentChannelId, handleSubmit } = this.props;
+    const {
+      channels, currentChannelId, handleSubmit, submitting,
+    } = this.props;
     return (
       <ListGroup>
         <form className="form-inline m-1" onSubmit={handleSubmit(this.submitChannel)}>
-          <Field name="text" required component="input" type="text" className="w-75 border border-info" />
-          <button type="submit" className="ml-1 btn btn-info btn-sm">NEW</button>
+          <Field name="text" required component="input" disabled={submitting} type="text" className="w-75 border border-info" />
+          <button type="submit" className="ml-1 btn btn-info btn-sm" disabled={submitting}>NEW</button>
         </form>
         {channels.map((el) => {
           const btnClass = cn({
