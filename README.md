@@ -5,4 +5,5 @@
 # Mini-slack
 
 [Проект залит на heroku](https://tranquil-dawn-29981.herokuapp.com/)
+
 При открытии после простоя, возможна задержка - heroku поднимает машину
