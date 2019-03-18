@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 @connect(mapStateToProps)
-class ListChannels extends React.Component {
+class Messages extends React.Component {
   render() {
     const { messages } = this.props;
     return (
@@ -25,4 +25,4 @@ class ListChannels extends React.Component {
   }
 }
 
-export default ListChannels;
+export default Messages;
